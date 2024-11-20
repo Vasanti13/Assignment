@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+</head>
+
+<body>
+    <header>
+        <h1>Vasanti Pancham</h1>
+        <p>Web Developer | Enthusiastic learner </p>
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>As a web developer, I thrive on the challenge of building and maintaining websites and web applications that not only look great but also function seamlessly.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Node.js</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Project 1</h3>
+            <p>Know your world at cllg level.</p>
+        </div>
+        <div class="project">
+            <h3>Project 2</h3>
+            <p>Vconnect (hackathon participation project)</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>If you'd like to get in touch, feel free to reach out!</p>
+        <p>Email vpancham200@gmail.com</p>
+        <p>Phone no. 9127XXXXX</p>
+    </section>
+   <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background: #cec8c8;
+    color: rgb(61, 22, 22);
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav {
+    background: #3d0cc5;
+    color: rgb(20, 4, 165);
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+    text-align: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+section {
+    padding: 20px;
+    margin: 10px;
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+}
+
+.project {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+}
+.profile-pic {
+    width: 150px; 
+    height: auto; 
+    border-radius: 50%; 
+    display: block;
+    margin: 10px auto; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form textarea {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+    </style>
+</body>
+
+</html>
