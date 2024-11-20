@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD operations</title>
+</head>
+
+<body>
+    <h1>Database Operations</h1>
+    <!-- Create table-->
+    <button onclick="window.location.href='create-table'">CREATE TABLE</button>
+
+    <!--Insert Record-->
+    <form method="GET" action="/insert">
+        <h2><I>Insert records</I></h2>
+        <input type="number" id="name" name="id" placeholder="ID" required>
+        <input type="text" id="name" name="name" placeholder="Enter Name" required>
+        <input type="text" id="email" name="email" placeholder="Enter Email" required>
+        <button type="submit">INSERT</button>
+    </form>
+    <!--Update Record-->
+    <form method="GET" action="/update">
+        <h2><I>Add/update records</I></h2>
+        <input type="number" id="name" name="id" placeholder="ID" required>
+        <input type="text" id="name" name="name" placeholder="Enter Name" required>
+        <input type="text" id="email" name="email" placeholder="Enter Email" required>
+        <button type="submit">Update</button>
+    </form>
+    <!--Delete Record-->
+    <form method="GET" action="/delete">
+        <h2><I>Delete records</I></h2>
+        <input type="number" id="name" name="id" placeholder="ID" required>
+        <input type="text" id="name" name="name" placeholder="Enter Name" required>
+        <input type="text" id="email" name="email" placeholder="Enter Email" required>
+        <button type="submit">Delete</button>
+    </form>
+    <!--Show tables-->
+    <button onclick="fetchTable()">SHOW TABLES</button>
+    <div id="table"></div>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background-color: #e2a4a4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #c9a9e7;
+            color: rgb(18, 2, 77);
+            border: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #71c984;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .actions button {
+            margin-right: 5px;
+        }
+    </style>
+    <script>
+        function fetchTable() {
+            fetch('/show-table')
+            .then(response => response.json())
+            .then(data => {
+                const tableDiv = document.getElementById("table");
+                tableDiv.innerHTML="<h3>Users Table</h3>"
+                data.forEach(row => { 
+                    tableDiv.innerHTML += `ID: ${row.id}, Name: ${row.name}, Email: ${row.email} <br>`;
+                });
+            });
+        }
+    </script>
+</body>
+</html>

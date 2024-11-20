@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations</title>
+    <style>
+        #errorMessage { color: red; }
+    </style>
+</head>
+<body>
+    <h1>CRUD Operations</h1>
+    <button onclick="fetchUsers()">Refresh Users</button>
+    <div id="errorMessage"></div>
+    <h2>Users</h2>
+    <ul id="userList"></ul>
+    <script>
+        const apiUrl = 'http://localhost:3000/users';
+        function fetchUsers() {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = ''; // Clear previous errors
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(users => {
+                    const userList = document.getElementById('userList');
+                    userList.innerHTML = ''; // Clear the existing list
+                    users.forEach(user => {
+                        const li = document.createElement('li');
+                        li.textContent = `${user.name} (${user.email})`;
+                        userList.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                    const errorMessage = document.getElementById('errorMessage');
+                    errorMessage.textContent = `Failed to load users: ${error.message}`;
+                });
+        }
+        // Fetch users on page load
+        window.onload = fetchUsers;
+    </script>
+</body>
+</html>
